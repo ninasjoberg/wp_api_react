@@ -46,9 +46,9 @@ class AppInitializer {
 
                         <Switch>
                             <Route path="/" component={ Home } exact />
-
+                    
                             {this.buildRoutes(response)}
-                            <Route render={() => { return <Redirect to="/" /> }} />
+                            <Route render={() => { return <Redirect to="/" /> }} /> /* if no route found,url not found,  redirect to home / */
                         </Switch> 
                     </div>
                 </Router>

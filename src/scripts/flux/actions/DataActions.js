@@ -25,11 +25,25 @@ class DataActions {
     // Method for getting Pages data
     getPages(cb){
         this.api(this.pagesEndPoint).then((response)=>{
-            this.getPosts(response, cb)
+            this.getProducts(response, cb)
         });
         return true;
     }
 
+    // Method for getting products data
+    getProducts(pages, cb){
+        this.api(this.productsEndPoint).then((response)=>{
+            const products  = response
+            const payload   = { pages, products };
+            //this.getSuccess(response); // Pass returned data to the store
+            this.getSuccess(payload); // Pass returned data to the store
+            cb(payload); // This callback will be used for dynamic rout building
+           
+        });
+        return true;
+    }
+
+/*
     // Method for getting Posts data
     getPosts(pages, cb){
         this.api(this.postsEndPoint).then((response)=>{
@@ -41,15 +55,8 @@ class DataActions {
         });
         return true;
     }
-
-    // Method for getting my_products data
-    getProducts(cb){
-        this.api(this.productsEndPoin).then((response)=>{
-            //this.getSuccess(response); // Pass returned data to the store
-            cb(response); // This callback will be used for dynamic rout building
-        });
-        return true;
-    }
+*/
+  
 
     // This returnes an object with Pages and Posts data together
     // The Alt Store will listen for this method to fire and will store the returned data

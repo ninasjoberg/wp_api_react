@@ -14,6 +14,7 @@ class DataStore {
             getAll:         this.getAll,
             getAllPages:    this.getAllPages,
             getAllPosts:    this.getAllPosts,
+            getAllProducts: this.getAllProducts,
             getPageBySlug:  this.getPageBySlug
         });
     }
@@ -36,6 +37,11 @@ class DataStore {
     // Returns all Posts
     getAllPosts() { 
         return this.getState().data.posts; 
+    }
+
+    getAllProducts(){
+        console.log(this.getState());
+        return this.getState().data.products; 
     }
 
     // Returns a Page by provided slug

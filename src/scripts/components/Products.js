@@ -1,22 +1,28 @@
 import DataStore from 'flux/stores/DataStore.js'
+import Product from './Product';
 
 class Products extends React.Component {
     render() {
-        let page = DataStore.getPageBySlug('my_product');
-        let acf = page.acf; // Advanced Custom Fields data
-    return (
-        <div>
-            <h1>{acf.yourCustomFieldName}</h1>
-        </div>
-            /*
-             <div>
-                <h2>Products</h2>
-                <h1>{pageData.title.rendered}</h1>
-
-                <div dangerouslySetInnerHTML={{__html: pageData.content.rendered}} />
-                <div>{pageData.acf.text}</div>
+    
+        let productList = DataStore.getAllProducts();
+        console.log(productList);
+        return (
+            <div>
+                <h1> THis is the product page!</h1>
+                <ul>
+                    { productList.map (function(p){
+                        return (
+                            <li>
+                                <Product 
+                                    image={p.acf.product_picture}
+                                    description={p.acf.product_description}
+                                    title={p.title.rendered}>
+                                </Product>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
-            */
         );
     }
 }
