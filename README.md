@@ -1,4 +1,4 @@
-React app on top of WordPress REST API
+#React app on top of WordPress REST API
 
 boilerplate taken from: GitHub repo: https://github.com/DreySkee/wp-api-react
 
