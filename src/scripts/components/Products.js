@@ -1,4 +1,4 @@
-import DataStore from 'flux/stores/DataStore.js'
+import DataStore from 'flux/stores/DataStore.js';
 import Product from './Product';
 
 class Products extends React.Component {
