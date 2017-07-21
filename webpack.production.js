@@ -1,6 +1,10 @@
 var webpack  			= require('webpack');
 var path				= require('path');
 var HtmlWebpackPlugin 	= require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const cssFilename = 'build/[name].[chunkhash:8].css)'
+
 
 module.exports = {	
 	devtool: 'source-map',
@@ -51,7 +55,28 @@ module.exports = {
 					plugins: ['transform-runtime'],
 					presets: ['es2015', 'stage-0', 'react'],
 				}
-			}
+			},
+			// The notation here is somewhat confusing.
+			// "postcss" loader applies autoprefixer to our CSS.
+			// "css" loader resolves paths in CSS and adds assets as dependencies.
+			// "style" loader normally turns CSS into JS modules injecting <style>,
+			// but unlike in development configuration, we do something different.
+			// `ExtractTextPlugin` first applies the "postcss" and "css" loaders
+			// (second argument), then grabs the result CSS and puts it into a
+			// separate file in our build process. This way we actually ship
+			// a single CSS file in production instead of JS code injecting <style>
+			// tags. If you use code splitting, however, any async bundles will still
+			// use the "style" loader inside the async code so CSS from them won't be
+			// in the main CSS file.
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract(
+				'style',
+				'css?modules&importLoaders=2&sourceMap&localIdentName=[hash:base64:5]!scss',
+				extractTextPluginOptions
+				)
+				// Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+			},
 		]
 	},
 	plugins: [
@@ -76,5 +101,7 @@ module.exports = {
             },
             sourceMap: true
         }),
+		 // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
+    	new ExtractTextPlugin({filename: cssFilename, disable: false, allChunks: true}),
 	]
 }

@@ -1,6 +1,9 @@
 var webpack  			= require('webpack');
 var path				= require('path');
 var HtmlWebpackPlugin 	= require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const cssFilename = 'build/[name].[chunkhash:8].css)'
 
 module.exports = {	
 	devtool: 'cheap-module-source-map',
@@ -54,7 +57,21 @@ module.exports = {
 					plugins: ['transform-runtime'],
 					presets: ['es2015', 'stage-0', 'react'],
 				}
-			}
+			},
+			// "postcss" loader applies autoprefixer to our CSS.
+			// "css" loader resolves paths in CSS and adds assets as dependencies.
+			// "style" loader turns CSS into JS modules that inject <style> tags.
+			// In production, we use a plugin to extract that CSS to a file, but
+			// in development "style" loader enables hot editing of CSS.
+			{
+				test: /\.css$/,
+				loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+			},
+			{
+				test: /\.scss$/,
+				exclude: /node_modules/,
+				loader: 'style-loader!css-loader?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader'
+			},
 		]
 	},
 	plugins: [
@@ -72,6 +89,9 @@ module.exports = {
 	        filename: 'index.html',
 	        template: './src/index.html',
 	        hash: false
-	    })
+	    }),
+
+		new ExtractTextPlugin({filename: "style.css", allChunks: true}),
+		new ExtractTextPlugin({filename: "style.scss", allChunks: true})
 	]
 }
