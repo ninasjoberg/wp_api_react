@@ -10,12 +10,12 @@ export default class Product extends React.Component {
         } = this.props;
         
         return (
-            <div>
+            <div className={styles.root}>
+                <img className={styles.productimg} src={image.url} alt=""/>
                 <h2> {title}</h2>
-                <p className={styles.root}>
+                <p className={styles.description}>
                     {description}
                 </p>
-                <img src={image.url} alt=""/>
             </div>
         );
     }

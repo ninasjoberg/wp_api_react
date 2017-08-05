@@ -1,0 +1,38 @@
+.root {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    background-color: #f5eee8;
+    width: 80%;
+    margin: auto;
+    height: 45rem;
+}
+
+
+.contactbox{
+    background-color: #f5eee8;
+    padding: 1rem 2rem;
+    max-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.text{
+    font-size: 1.2rem;
+    letter-spacing: 0.6px;
+    line-height: 1.6rem;
+    text-align: center;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.colorone{
+    background-color: #88A0A8;
+}

@@ -31,6 +31,7 @@ class DataStore {
 
     // Returns all Pages
     getAllPages() { 
+        console.log(this.getState().data.pages);
         return this.getState().data.pages; 
     }
 
