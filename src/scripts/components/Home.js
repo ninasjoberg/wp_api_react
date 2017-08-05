@@ -1,38 +1,22 @@
 import DataStore from 'flux/stores/DataStore.js';
-import Products from './Products';
+import styles from './home.scss';
+
 
 class Home extends React.Component {
     render() {
-       // let pageData = DataStore.getPageBySlug('home');
-       let allData = DataStore.getAll();
-       console.log(allData);
-       const productList = [
-           {
-               name: 'ring',
-               price: 200
-           },
-            {
-               name: 'halsband',
-               price: 500
-           }
-       ]
+       let pageData = DataStore.getPageBySlug('home');
+       console.log(pageData);
+      
         return (
-            <div>
-                <h2>Hello world!</h2>
-                <p> This is ninas page</p>
-                { productList.map (function(p){
-                    return  <Products name={ p.name } price={ p.price }></Products>
-                })}
-               
+            <div className={styles.root}>
+                <div className={styles.imgbox}>
+                    <img src={pageData.acf.frontpage_image.url} alt=""/>
+                </div>
+                <div className={styles.textbox}>
+                    <h1 className={styles.heading}>{pageData.acf.company_name}</h1>
+                    <div dangerouslySetInnerHTML={{__html: pageData.acf.frontpage_text}} className={styles.text}/>
+                </div>
             </div>    
-            /*<div>
-                <p>hello world</p>
-                <h2>Homepage template</h2>
-                <h1>{pageData.title.rendered}</h1>
-
-                <div dangerouslySetInnerHTML={{__html: pageData.excerpt.rendered}} />
-                <div>{pageData.acf.text}</div>
-            </div>*/
         );
     }
 }
