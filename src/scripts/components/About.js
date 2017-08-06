@@ -1,20 +1,18 @@
-import DataStore from 'flux/stores/DataStore.js'
+import DataStore from 'flux/stores/DataStore.js';
+import styles from './about.scss';
 
 class About extends React.Component {
     render() {
         //let pageData = DataStore.getPageBySlug('about');
-        let page = DataStore.getPageBySlug('about');
+        let pageData = DataStore.getPageBySlug('about');
+        console.log(pageData);
         return (
-            <div>
-                <h1>{page.title.render}</h1>
+            <div className={styles.root}>
+                <h1>{pageData.acf.heading}</h1>
+                <div className={styles.abouttext} dangerouslySetInnerHTML={{__html: pageData.acf.about_text}}/>
+                <img className={styles.aboutimg} src={pageData.acf.picture.url} alt=""/>
             </div>
-            /*<div>
-                <h2>About page template</h2>
-                <h1>{pageData.title.rendered}</h1>
-
-                <div dangerouslySetInnerHTML={{__html: pageData.excerpt.rendered}} />
-                <div>{pageData.acf.text}</div>
-            </div>*/
+           
         );
     }
 }

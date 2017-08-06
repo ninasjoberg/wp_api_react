@@ -9,8 +9,11 @@ class Contact extends React.Component {
     renderContactInfo(contactInfoList){  //innuti en class skrivs inte order "function" ut före en funktiion
         const contactList = [];
         for(let prop in contactInfoList){
-            contactList.push(<Contacticon name={prop} key={prop}/>); //här anropas Contacticon componenten och ger den this.props (name) (key)
+            console.log(prop);
+            console.log(contactInfoList[prop]);
+            contactList.push(<Contacticon name={prop} link={contactInfoList[prop]} key={prop}/>); //här anropas Contacticon componenten och ger den this.props (name) (key)
         } 
+        console.log(contactList);
         return contactList;  
     }
 
