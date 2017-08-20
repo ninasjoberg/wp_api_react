@@ -26,6 +26,7 @@ class DataStore {
 
     // Returns all pages and posts
     getAll() { 
+        console.log(this.getState().data);
         return this.getState().data; 
     }
 
@@ -41,7 +42,7 @@ class DataStore {
     }
 
     getAllProducts(){
-        console.log(this.getState());
+        console.log(this.getState().data.products);
         return this.getState().data.products; 
     }
 
@@ -52,6 +53,8 @@ class DataStore {
             return pages[page].slug === slug;
         })] || {};
     }
+
+  
 
 }
 

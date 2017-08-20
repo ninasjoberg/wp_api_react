@@ -6,14 +6,17 @@ import About                from 'components/About.js';
 import Contact              from 'components/Contact.js';
 import Products             from 'components/Products.js';
 import Header               from 'components/Header.js';
+import ProductView          from 'components/ProductView.js';
 
 
 import {
     BrowserRouter as Router,
     Route,
+    hashHistory,
     Redirect,
     Switch
 } from 'react-router-dom';
+
 
 
 class AppInitializer {
@@ -23,6 +26,8 @@ class AppInitializer {
         'contact': Contact,
         'products': Products
     }
+
+
 
     buildRoutes(data){
         return data.pages.map((page, i) => {
@@ -40,19 +45,18 @@ class AppInitializer {
     run() {
         DataActions.getPages((response)=>{
             render(
-                <Router>
+                <Router history={hashHistory}>
                     <div>
                         <Header />
 
-                        <Switch>
+                        <Switch> /* group Routes. Switch will iterate over its children elements (the routes) and only render the first one that matches the current pathname. */
                             <Route path="/" component={ Home } exact />
-                    
                             {this.buildRoutes(response)}
+                            <Route path="/products/:id" component={ProductView}/>
                             <Route render={() => { return <Redirect to="/" /> }} /> /* if no route found,url not found,  redirect to home / */
                         </Switch> 
-                    </div>
+                    </div>   
                 </Router>
-
                 , document.getElementById('app')
             );
         });

@@ -1,3 +1,6 @@
+import React from 'react';
+import {link} from 'react-router';
+
 import DataStore from 'flux/stores/DataStore.js';
 import Product from './Product';
 import styles from './products.scss';
@@ -16,8 +19,8 @@ class Products extends React.Component {
                             <li className={styles.product}>
                                 <Product 
                                     image={p.acf.product_picture}
-                                    description={p.acf.product_description}
                                     title={p.title.rendered}
+                                    id={p.id}
                                     key={i}>
                                 </Product>
                             </li>
@@ -28,5 +31,6 @@ class Products extends React.Component {
         );
     }
 }
+
 
 export default Products;

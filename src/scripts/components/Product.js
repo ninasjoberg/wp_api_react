@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import styles from './product.scss';
 
 
@@ -6,17 +7,14 @@ export default class Product extends React.Component {
         const {
             title,
             image,
-            description
+            id
         } = this.props;
         
         return (
-            <div className={styles.root}>
-                <img className={styles.productimg} src={image.url} alt=""/>
-                <h2> {title}</h2>
-                <p className={styles.description}>
-                    {description}
-                </p>
-            </div>
+            <Link to={`/products/${id}`} className={styles.root}>
+                <img className={styles.productimg} src={image.url} alt="Product picture"/>
+                <h2 className={styles.title}> {title} </h2>
+            </Link>
         );
     }
 }

@@ -9,6 +9,7 @@ class DataActions {
         this.pagesEndPoint = `${appUrl}/wp-json/wp/v2/pages`; // Endpoint for getting Wordpress Pages
         this.postsEndPoint = `${appUrl}/wp-json/wp/v2/posts`; // Endpoint for getting Wordpress Posts
         this.productsEndPoint = `${appUrl}/wp-json/wp/v2/my_products`; // Endpoint for getting Wordpress custom post type 'my_products'
+        this.singleProductEndPoint = `${appUrl}/wp-json/wp/v2/my_products/:id`;
     }
 
     // Method for getting data from the provided end point url with axios
@@ -43,6 +44,14 @@ class DataActions {
         return true;
     }
 
+//denna används inte just nu: 
+    // Method for getting a specific product by id
+    getSingleProduct(cb){
+        this.api(this.singleProductEndPoint).then((response)=>{
+            this.getSuccess(response); // Pass returned data to the store
+        });
+        return true;
+    }
 /*
     // Method for getting Posts data
     getPosts(pages, cb){

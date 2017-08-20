@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import DataStore from 'flux/stores/DataStore.js'
 import styles from './header.scss';
 import mainStyle from './main.scss';
@@ -13,14 +13,14 @@ class Header extends React.Component {
 
         return (
             <div className={styles.root}>
-                <Link className={styles.menu} to="/">Home</Link>
+                <NavLink className={styles.menu} to="/">Home</NavLink>
 
                 {allPages.map((page) => {
                     if(page.slug != 'home'){
                        return(
-                            <Link className={styles.menu} key={page.id} to={`/${page.slug}`}>
+                            <NavLink className={styles.menu} activeClassName={styles.active} key={page.id} to={`/${page.slug}`}>
                                 {page.title.rendered}
-                            </Link>
+                            </NavLink>
                         )                     
                    }
                 })}
