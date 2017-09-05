@@ -1,34 +1,38 @@
 .root {
     margin-top: 5rem;
     display: flex;
+    //flex: row;
     justify-content: center;
     background-color: #f5eee8;
-    width: 80%;
-    margin: auto;
-    height: 45rem;
+    width: 60rem;
+    margin: 5rem auto;
+    padding: 2rem;
 }
 
 
 .contactbox{
     background-color: #f5eee8;
-    padding: 1rem 2rem;
-    max-width: 35rem;
+    padding: 2rem;
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
     justify-content: space-around;
-}
-
-
-.text{
+    text-align: center;
     font-size: 1.2rem;
     letter-spacing: 0.6px;
     line-height: 1.6rem;
-    text-align: center;
+}
+
+
+
+
+.text{
+    margin: 2rem;
 }
 
 .icons {
     display: flex;
     justify-content: space-between;
+    margin-top: 2rem;
 }
 
 

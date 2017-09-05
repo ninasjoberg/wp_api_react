@@ -1,6 +1,5 @@
 .root {
     width: 80%;
-    //height: 100%;
     margin: auto;
     background-color: #f5eee8;
     display: flex;
@@ -16,7 +15,7 @@
 }
 
 .text{
-    font-size: 1.2rem;
+    //font-size: 16px;
     letter-spacing: 0.6px;
     line-height: 1.6rem;
     text-align: center;
@@ -24,7 +23,7 @@
 
 .heading{
     margin-bottom: 4rem;
-    font-family: Georgia;
+    font-family: 'nunito_sansextralight';
     font-size: 3rem;
     letter-spacing: 1.6px;
 }
@@ -32,9 +31,46 @@
 
 .imgbox{
     width: 50%;
-    //height: 10rem;
-    margin: 0;
+    min-width: 380px;
+
     img{
         width: 100%;
+        display: block;
     }
+}
+
+/* Medium devices ipad*/ 
+@media screen and (min-width: 830px) and (max-width: 1030px) {
+
+    .root{
+        width: 100%;
+    }
+}
+
+/* Små skärmar mobil*/ 
+@media screen and (max-width: 829px){
+
+    .root{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imgbox{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+
+    .textbox{
+        width: 100%;
+        padding: 0 0;
+    }
+
+    .text{
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+
 }

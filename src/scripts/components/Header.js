@@ -13,13 +13,13 @@ class Header extends React.Component {
 
         return (
             <div className={styles.root}>
-                <NavLink className={styles.menu} to="/">Home</NavLink>
+                <NavLink className={styles.menu} to="/">HOME</NavLink>
 
                 {allPages.map((page) => {
                     if(page.slug != 'home'){
                        return(
                             <NavLink className={styles.menu} activeClassName={styles.active} key={page.id} to={`/${page.slug}`}>
-                                {page.title.rendered}
+                                {page.title.rendered.toUpperCase()}
                             </NavLink>
                         )                     
                    }

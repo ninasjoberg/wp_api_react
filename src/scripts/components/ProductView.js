@@ -23,17 +23,25 @@ export default React.createClass({
 
         return(
             <div className={styles.root}>
-                <h2> {item.title.rendered}</h2>
-                <p className={styles.description}> {item.acf.product_description} </p>
-                { item.acf.product_measurments && <div dangerouslySetInnerHTML={{__html:item.acf.product_measurments}} />}
-                { item.acf.additional_info && <p> {item.acf.additional_info} </p>}
-
-                <img className={styles.picture} src={item.acf.product_picture.url} alt="Product picture"/>
-                <div className={styles.pictures}>
-                    { item.acf.picture_two && <img className={styles.smallpicture} src={item.acf.picture_two.url} alt=""/> }
-                    { item.acf.picture_three && <img className={styles.smallpicture} src={item.acf.picture_three.url} alt=""/> }
-                    { item.acf.picture_four && <img className={styles.smallpicture} src={item.acf.picture_four.url} alt=""/> }
-                </div>    
+                <div className={styles.info}>
+                    <h2> {item.title.rendered}</h2>
+                    <hr/>
+                    <div className={styles.text}>
+                        <p className={styles.description}> {item.acf.product_description} </p>
+                        { item.acf.product_measurments && <div dangerouslySetInnerHTML={{__html:item.acf.product_measurments}} />}
+                        { item.acf.additional_info && <p> {item.acf.additional_info} </p>}
+                    </div>
+                </div>
+                <div className={styles.productPictures}>
+                    <div className={styles.picture}>
+                        <img src={item.acf.product_picture.url} alt="Product picture"/>
+                    </div>
+                    <div className={styles.smallpictures}>
+                        { item.acf.picture_two && <img className={styles.smallpicture} src={item.acf.picture_two.url} alt=""/> }
+                        { item.acf.picture_three && <img className={styles.smallpicture} src={item.acf.picture_three.url} alt=""/> }
+                        { item.acf.picture_four && <img className={styles.smallpicture} src={item.acf.picture_four.url} alt=""/> }
+                    </div> 
+                </div>   
             </div>    
         )
     }
