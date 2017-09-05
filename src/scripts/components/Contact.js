@@ -24,8 +24,10 @@ class Contact extends React.Component {
         return ( //här skrivs inga semikolon ut
             <div className={styles.root}>  
                 <div className={styles.contactbox}>
-                    <div dangerouslySetInnerHTML={{__html: pageData.acf.contact_heading}} className={styles.text}/>
-                    <div dangerouslySetInnerHTML={{__html: pageData.acf.contact_text}} className={styles.text}/>
+                    <div className={styles.info}>
+                        <div dangerouslySetInnerHTML={{__html: pageData.acf.contact_heading}} className={styles.heading}/>
+                        <div dangerouslySetInnerHTML={{__html: pageData.acf.contact_text}} className={styles.text}/>
+                    </div>
                     <div className={styles.icons}>
                         {this.renderContactInfo(contactInfoList)}
                     </div>    

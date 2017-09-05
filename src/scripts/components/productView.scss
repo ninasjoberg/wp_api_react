@@ -1,30 +1,53 @@
 
 .root{
-    width: 45%;
-    margin: 0 auto;
-       background-color: #f5eee8;
+    width: 60rem;
+    margin: 5rem auto;
+    background-color: #f5eee8;
+    //padding: 4rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-flow: row-reverse;
+    font-family: 'nunito_sansextralight';
+    font-weight: 200;
+    letter-spacing: 0.6px;
 }
 
-.description{
-    width: 85%;
-    letter-spacing: 0.6px;
-    line-height: 1.6rem;
+.info{
+    width: 30rem;
+    margin-top: 0;
+    background-color: #f9f9f9;
+    padding: 4rem;
+
+    h2{
+        margin: 0;
+    }
+}
+
+
+.productPictures{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //margin: 2rem 0;
+    width: 30rem;
+    padding: 4rem;
 }
 
 .picture{
-     width: 80%;
-     margin: 2rem 0;
+    width: 100%;
+
+    img{
+        width: 100%;
+    }
 }
 
-.pictures{
-   
+.smallpictures{
+    display: flex;
+    align-items: center;
+    //justify-content: space-around;
 }
 
 .smallpicture{
-    width: 4rem;
-
+    width: 25%;
+    margin: 0.5rem;
 }
+
