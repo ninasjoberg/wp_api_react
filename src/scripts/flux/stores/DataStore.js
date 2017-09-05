@@ -29,7 +29,7 @@ class DataStore {
         console.log(this.getState().data);
         return this.getState().data; 
     }
-
+ 
     // Returns all Pages
     getAllPages() { 
         console.log(this.getState().data.pages);
@@ -54,6 +54,9 @@ class DataStore {
         })] || {};
     }
 
+    getProductById(id){
+
+    }
   
 
 }
