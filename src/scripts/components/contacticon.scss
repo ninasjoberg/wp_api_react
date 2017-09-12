@@ -1,11 +1,15 @@
 .root{
-    width: 6rem;
-    height: 6rem;
-    background-color:#C49991;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 1rem;
+}
+
+.icon{
+    text-decoration: none;
 }
 
 span{

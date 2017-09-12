@@ -1,42 +1,99 @@
 .root {
-    margin-top: 5rem;
-    display: flex;
-    //flex: row;
-    justify-content: center;
-    background-color: #f5eee8;
-    width: 60rem;
-    margin: 5rem auto;
-    padding: 2rem;
+    width: 65%;
+    margin: 4rem auto;
+     p{
+        margin-top: 0;
+    }
 }
 
-
 .contactbox{
-    background-color: #f5eee8;
-    padding: 2rem;
     display: flex;
-    //flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    font-size: 1.2rem;
     letter-spacing: 0.6px;
     line-height: 1.6rem;
 }
 
-
-
-
-.text{
-    margin: 2rem;
+.info{
+    width: 50%;
+    padding: 4rem;
+    background-color: #f5eee8;
+    margin: 0 1rem 1rem 0;
 }
 
-.icons {
+.heading{
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.mail{
+    width: 50%;
+    background-color: #f5eee8;
+    margin: 0 0 1rem 1rem;
+    padding: 4rem;
+}
+
+.contactbar{
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background-color: #f5eee8;
+    p{
+        margin-bottom: 0;
+    }
+}
+
+.contacticons{
+    display: flex;
 }
 
 
-
-.colorone{
-    background-color: #88A0A8;
+/* Medium devices ipad*/ 
+@media screen and (min-width: 830px) and (max-width: 1250px) {
+    .root{
+        width: 100%;
+    }
+  
 }
+
+
+/* Små skärmar mobil*/ 
+@media screen and (max-width: 829px){
+     .root{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .contactbox{
+        flex-direction: column;
+    }
+
+    .info{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .mail{
+        width: 100%;
+        margin-left: 0;
+    }  
+
+    .contactbar{
+        padding: 0;
+        justify-content: center;
+        background-color:  #222;
+    }  
+
+    .address{
+        display: none;
+    }
+
+  
+}
+
+

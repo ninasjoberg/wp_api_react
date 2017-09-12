@@ -1,9 +1,7 @@
-
 .root{
-    width: 60rem;
-    margin: 5rem auto;
+    width: 65%;
+    margin: 4rem auto;
     background-color: #f5eee8;
-    //padding: 4rem;
     display: flex;
     flex-flow: row-reverse;
     font-family: 'nunito_sansextralight';
@@ -12,29 +10,25 @@
 }
 
 .info{
-    width: 30rem;
+    width: 50%;
     margin-top: 0;
     background-color: #f9f9f9;
     padding: 4rem;
-
     h2{
         margin: 0;
     }
 }
 
-
 .productPictures{
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    //margin: 2rem 0;
-    width: 30rem;
     padding: 4rem;
 }
 
 .picture{
     width: 100%;
-
     img{
         width: 100%;
     }
@@ -43,11 +37,41 @@
 .smallpictures{
     display: flex;
     align-items: center;
-    //justify-content: space-around;
 }
 
 .smallpicture{
     width: 25%;
     margin: 0.5rem;
+    img{
+        width: 100%;
+    }
 }
+
+
+
+/* Medium devices ipad*/ 
+@media screen and (min-width: 830px) and (max-width: 1250px) {
+    .root{
+        width: 100%;
+    }
+  
+}
+
+
+/* Små skärmar mobil*/ 
+@media screen and (max-width: 829px){
+     .root{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .info{
+        width: 100%;
+    }
+
+    .productPictures{
+        width: 100%
+    }    
+}
+
 

@@ -1,7 +1,7 @@
 .root{
     background-color: #222;
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     padding: 2rem 0;
     display: flex;
     justify-content: flex-end;
@@ -13,7 +13,6 @@
     color: lightgrey;
     font-family: 'nunito_sansextralight';
     font-weight: 200;
-    //font-size: 16px;
     letter-spacing: 0.6px;
 }
 
@@ -21,3 +20,15 @@
 .active{
     color:#546A76;
 }
+
+/* Små skärmar mobil*/ 
+@media screen and (max-width: 829px){
+    .root{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu{
+        margin: 0.5rem;
+    }
+}    

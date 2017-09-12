@@ -1,7 +1,7 @@
 import DataStore from 'flux/stores/DataStore.js';
 import styles from './contact.scss';
 import Contacticon from './Contacticon.js';
-import classnames from 'classnames';
+import ContactForm from './ContactForm.js';
 
 
 class Contact extends React.Component {
@@ -9,17 +9,16 @@ class Contact extends React.Component {
     renderContactInfo(contactInfoList){  //innuti en class skrivs inte order "function" ut före en funktiion
         const contactList = [];
         for(let prop in contactInfoList){
-            console.log(prop);
-            console.log(contactInfoList[prop]);
             contactList.push(<Contacticon name={prop} link={contactInfoList[prop]} key={prop}/>); //här anropas Contacticon componenten och ger den this.props (name) (key)
         } 
-        console.log(contactList);
         return contactList;  
     }
 
     render() {
         let pageData = DataStore.getPageBySlug('contact');
         let contactInfoList = pageData.acf;
+
+        console.log(contactInfoList.location);
 
         return ( //här skrivs inga semikolon ut
             <div className={styles.root}>  
@@ -28,10 +27,19 @@ class Contact extends React.Component {
                         <div dangerouslySetInnerHTML={{__html: pageData.acf.contact_heading}} className={styles.heading}/>
                         <div dangerouslySetInnerHTML={{__html: pageData.acf.contact_text}} className={styles.text}/>
                     </div>
-                    <div className={styles.icons}>
+                    <div className={styles.mail}>
+                        <ContactForm email={contactInfoList.email}/>
+                    </div>   
+                </div>    
+                 <div className={styles.contactbar}>
+                     <div className={styles.address}>
+                        <p>Besöksadress:</p>
+                        <p>{contactInfoList.location}</p>
+                     </div>
+                     <div className={styles.contacticons}>
                         {this.renderContactInfo(contactInfoList)}
-                    </div>    
-                </div>      
+                    </div>
+                 </div>   
             </div>
         );
     }

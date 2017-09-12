@@ -46,11 +46,11 @@ export default class Contacticon extends React.Component {
 
         if (icon && this.props.link){
             return(
-                <div className={styles.root} style={{backgroundColor:icon.color}}>
-                    <a className={styles.icon} href={icon.link + this.props.link} target="blank">
-                        <span className={`fa fa-${icon.icon} fa-4x`} aria-hidden="true"></span> 
-                    </a>
-                </div>
+                <a className={styles.icon} href={icon.link + this.props.link} target="blank">
+                    <div className={styles.root} style={{backgroundColor:icon.color}}>
+                        <span className={`fa fa-${icon.icon} fa-2x`} aria-hidden="true"></span> 
+                    </div>
+                </a>
             )
         }else {
             return null;

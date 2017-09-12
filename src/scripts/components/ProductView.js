@@ -5,9 +5,8 @@ import Products from './Products.js';
 import styles from './productView.scss';
 
 
-
-
 export default React.createClass({
+
     render(){
         let productList = DataStore.getAllProducts();
 
@@ -37,9 +36,18 @@ export default React.createClass({
                         <img src={item.acf.product_picture.url} alt="Product picture"/>
                     </div>
                     <div className={styles.smallpictures}>
-                        { item.acf.picture_two && <img className={styles.smallpicture} src={item.acf.picture_two.url} alt=""/> }
-                        { item.acf.picture_three && <img className={styles.smallpicture} src={item.acf.picture_three.url} alt=""/> }
-                        { item.acf.picture_four && <img className={styles.smallpicture} src={item.acf.picture_four.url} alt=""/> }
+                        <a href="#" className={styles.smallpicture} onClick={this.active}>
+                            <img src={item.acf.product_picture.url} alt="Product picture"/>
+                        </a> 
+                        { item.acf.picture_two && <a href="#" className={styles.smallpicture}>
+                            <img src={item.acf.picture_two.url} alt=""/> 
+                        </a> }
+                        { item.acf.picture_three && <a href="#" className={styles.smallpicture}>
+                            { item.acf.picture_three && <img src={item.acf.picture_three.url} alt=""/> }
+                        </a> }
+                        { item.acf.picture_four && <a href="#" className={styles.smallpicture}>
+                            { item.acf.picture_four && <img src={item.acf.picture_four.url} alt=""/> }
+                        </a> }
                     </div> 
                 </div>   
             </div>    
