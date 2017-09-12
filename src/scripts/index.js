@@ -1,12 +1,12 @@
 import {render}             from 'react-dom';
 import DataActions          from 'flux/actions/DataActions.js';
 
-import Home                 from 'components/Home.js';
-import About                from 'components/About.js';
-import Contact              from 'components/Contact.js';
-import Products             from 'components/Products.js';
-import Header               from 'components/Header.js';
-import ProductView          from 'components/ProductView.js';
+import Home                 from 'components/home/Home.js';
+import About                from 'components/about/About.js';
+import Contact              from 'components/contact/Contact.js';
+import Products             from 'components/products/Products.js';
+import Header               from 'components/header/Header.js';
+import ProductView          from 'components/products/ProductView.js';
 
 
 import {
@@ -18,7 +18,6 @@ import {
 } from 'react-router-dom';
 
 
-
 class AppInitializer {
 
     templates = {
@@ -26,7 +25,6 @@ class AppInitializer {
         'contact': Contact,
         'products': Products
     }
-
 
 
     buildRoutes(data){

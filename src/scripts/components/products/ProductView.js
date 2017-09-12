@@ -1,11 +1,11 @@
-import React from 'react';
+import {Component} from 'react';
 import DataStore from 'flux/stores/DataStore.js';
 import Product from './Product.js';
 import Products from './Products.js';
-import styles from './productView.scss';
+import styles from './ProductView.scss';
 
 
-export default React.createClass({
+export default class ProductView extends Component{ //Varför kan jag ointe göra detta till en funktion ist en class??
 
     render(){
         let productList = DataStore.getAllProducts();
@@ -17,8 +17,6 @@ export default React.createClass({
         }
 
         const item = getItemById(this.props.match.params.id);
-
-        console.log(item);
 
         return(
             <div className={styles.root}>
@@ -53,4 +51,4 @@ export default React.createClass({
             </div>    
         )
     }
-})
+}
