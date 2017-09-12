@@ -1,12 +1,13 @@
+import {Component} from 'react';
 import DataStore from 'flux/stores/DataStore.js';
 import styles from './contact.scss';
 import Contacticon from './Contacticon.js';
 import ContactForm from './ContactForm.js';
 
 
-class Contact extends React.Component {
+export default class Contact extends Component { //varför måste denna vara en klass??
 
-    renderContactInfo(contactInfoList){  //innuti en class skrivs inte order "function" ut före en funktiion
+    renderContactInfo(contactInfoList){  
         const contactList = [];
         for(let prop in contactInfoList){
             contactList.push(<Contacticon name={prop} link={contactInfoList[prop]} key={prop}/>); //här anropas Contacticon componenten och ger den this.props (name) (key)
@@ -18,9 +19,8 @@ class Contact extends React.Component {
         let pageData = DataStore.getPageBySlug('contact');
         let contactInfoList = pageData.acf;
 
-        console.log(contactInfoList.location);
 
-        return ( //här skrivs inga semikolon ut
+        return ( 
             <div className={styles.root}>  
                 <div className={styles.contactbox}>
                     <div className={styles.info}>
@@ -45,4 +45,3 @@ class Contact extends React.Component {
     }
 }
 
-export default Contact;
