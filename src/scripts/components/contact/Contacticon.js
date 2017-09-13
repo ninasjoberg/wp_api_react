@@ -38,6 +38,8 @@ function getIcon(info){
 
 export default function Contacticon(props) {
 
+    console.log(props);
+
     const icon = getIcon(props);
 
     if (icon && props.link){

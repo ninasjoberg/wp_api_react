@@ -5,18 +5,32 @@ import Products from './Products.js';
 import styles from './ProductView.scss';
 
 
-export default class ProductView extends Component{ //Varför kan jag ointe göra detta till en funktion ist en class??
+export default class ProductView extends Component{ 
+
+    constructor(props){
+        super()
+        const item = this.getItemById(props.match.params.id);
+        this.state = {
+            picture: item.acf.product_picture.url,
+            item: item
+        }
+    }
+
+    activePicture = (event) => {
+        this.setState({picture: event.target.src})
+    }
+
+     getItemById = (id) => {
+        const productList = DataStore.getAllProducts();
+        return productList.find((item) => {
+            return item.id == id;
+        });
+    }
 
     render(){
-        let productList = DataStore.getAllProducts();
-
-        function getItemById(id){
-            return productList.find((item) => {
-                return item.id == id;
-            });
-        }
-
-        const item = getItemById(this.props.match.params.id);
+        
+        const item = this.getItemById(this.props.match.params.id);
+        const pic = this.state.picture;
 
         return(
             <div className={styles.root}>
@@ -31,20 +45,20 @@ export default class ProductView extends Component{ //Varför kan jag ointe gör
                 </div>
                 <div className={styles.productPictures}>
                     <div className={styles.picture}>
-                        <img src={item.acf.product_picture.url} alt="Product picture"/>
+                        <img src={pic} alt="Product picture"/>
                     </div>
                     <div className={styles.smallpictures}>
-                        <a href="#" className={styles.smallpicture} onClick={this.active}>
-                            <img src={item.acf.product_picture.url} alt="Product picture"/>
+                        <a href="#" className={styles.smallpicture} onClick={this.activePicture}>
+                            <img src={item.acf.product_picture.url} alt="Product picture" name="product_picture" value="true"/>
                         </a> 
-                        { item.acf.picture_two && <a href="#" className={styles.smallpicture}>
-                            <img src={item.acf.picture_two.url} alt=""/> 
+                        { item.acf.picture_two && <a href="#" className={styles.smallpicture} onClick={this.activePicture}>
+                            <img src={item.acf.picture_two.url} alt="" name="picture_two"/> 
                         </a> }
-                        { item.acf.picture_three && <a href="#" className={styles.smallpicture}>
-                            { item.acf.picture_three && <img src={item.acf.picture_three.url} alt=""/> }
+                        { item.acf.picture_three && <a href="#" className={styles.smallpicture} onClick={this.activePicture}>
+                            <img src={item.acf.picture_three.url} alt="" name="picture_three"/> 
                         </a> }
-                        { item.acf.picture_four && <a href="#" className={styles.smallpicture}>
-                            { item.acf.picture_four && <img src={item.acf.picture_four.url} alt=""/> }
+                        { item.acf.picture_four && <a href="#" className={styles.smallpicture} onClick={this.activePicture}>
+                            <img src={item.acf.picture_four.url} alt="" name="picture_four"/> 
                         </a> }
                     </div> 
                 </div>   
